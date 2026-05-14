@@ -32,7 +32,7 @@ SYSTEM_PROMPT = f"""
 """
 
 response = openai_client.chat.completions.create(
-    model="gpt-5-mini",
+    model="gpt-4.1",
     messages=[
         { "role": "system", "content": SYSTEM_PROMPT },
         { "role": "user", "content": user_query }

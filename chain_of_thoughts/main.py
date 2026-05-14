@@ -1,17 +1,13 @@
 from dotenv import load_dotenv
 from openai import OpenAI
-import os
 import json
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")  
 
 # Initialize client
-client = OpenAI(
-    api_key=api_key,
+client = OpenAI()
     # base_url="https://generativelanguage.googleapis.com/v1beta/"
-)
 
 
 SYSTEM_PROMPT = """
@@ -54,7 +50,7 @@ message_history.append({ "role": "user", "content": user_query })
 
 while True: 
     response = client.chat.completions.create(
-    model="gpt-5-mini",
+    model="gpt-4.1",
     response_format={"type": "json_object"},
     messages=message_history
 )
